@@ -1,7 +1,6 @@
 <?php
 
 namespace Config;
-
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -54,7 +53,7 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
 
-
+$routes->match(['get', 'post'], 'users/create', 'UsersController::register');
 $routes->get('login', 'PagesController::login');
+$routes->get('/', 'PagesController::login');
 $routes->get('register', 'PagesController::register');
-$routes->post('process_login', 'PagesController::process_login');
